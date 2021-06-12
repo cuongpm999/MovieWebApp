@@ -1,0 +1,449 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 13.2
+-- Dumped by pg_dump version 13.2
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET xmloption = content;
+SET client_min_messages = warning;
+SET row_security = off;
+
+SET default_tablespace = '';
+
+SET default_table_access_method = heap;
+
+--
+-- Name: hinh_thuc; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.hinh_thuc (
+    id integer NOT NULL,
+    ten_loai character varying(50) NOT NULL
+);
+
+
+--
+-- Name: hinh_thuc_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.hinh_thuc_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: hinh_thuc_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.hinh_thuc_id_seq OWNED BY public.hinh_thuc.id;
+
+
+--
+-- Name: phim; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.phim (
+    id integer NOT NULL,
+    seo character varying(1000) NOT NULL,
+    ten_phim_tiengviet character varying(2000) NOT NULL,
+    ten_phim_tienganh character varying(2000) NOT NULL,
+    diem_imdb double precision NOT NULL,
+    dao_dien character varying(2000) NOT NULL,
+    quoc_gia character varying(2000) NOT NULL,
+    nam integer NOT NULL,
+    thoi_luong character varying(100) NOT NULL,
+    so_tap character varying(100) NOT NULL,
+    chat_luong character varying(100) NOT NULL,
+    the_loai character varying(2000) NOT NULL,
+    noi_dung_phim text NOT NULL,
+    congty_sx character varying(2000) NOT NULL,
+    trailer character varying(2000) NOT NULL,
+    hinhthuc_id integer NOT NULL,
+    imdb boolean,
+    luot_xem integer NOT NULL,
+    status boolean
+);
+
+
+--
+-- Name: phim_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.phim_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: phim_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.phim_id_seq OWNED BY public.phim.id;
+
+
+--
+-- Name: poster_video_phim; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.poster_video_phim (
+    id integer NOT NULL,
+    id_google_drive character varying(2000) NOT NULL,
+    status boolean,
+    phim_id integer NOT NULL
+);
+
+
+--
+-- Name: poster_video_phim_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.poster_video_phim_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: poster_video_phim_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.poster_video_phim_id_seq OWNED BY public.poster_video_phim.id;
+
+
+--
+-- Name: role; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.role (
+    id integer NOT NULL,
+    name character varying(1000) NOT NULL,
+    description character varying(1000) NOT NULL,
+    status boolean
+);
+
+
+--
+-- Name: role_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.role_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: role_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.role_id_seq OWNED BY public.role.id;
+
+
+--
+-- Name: user; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."user" (
+    id integer NOT NULL,
+    username character varying(1000) NOT NULL,
+    password character varying(1000) NOT NULL,
+    fullname character varying(1000) NOT NULL,
+    mobile character varying(1000) NOT NULL,
+    email character varying(1000) NOT NULL,
+    status boolean
+);
+
+
+--
+-- Name: user_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.user_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: user_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.user_id_seq OWNED BY public."user".id;
+
+
+--
+-- Name: user_role; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.user_role (
+    user_id integer NOT NULL,
+    role_id integer NOT NULL
+);
+
+
+--
+-- Name: hinh_thuc id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.hinh_thuc ALTER COLUMN id SET DEFAULT nextval('public.hinh_thuc_id_seq'::regclass);
+
+
+--
+-- Name: phim id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.phim ALTER COLUMN id SET DEFAULT nextval('public.phim_id_seq'::regclass);
+
+
+--
+-- Name: poster_video_phim id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.poster_video_phim ALTER COLUMN id SET DEFAULT nextval('public.poster_video_phim_id_seq'::regclass);
+
+
+--
+-- Name: role id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.role ALTER COLUMN id SET DEFAULT nextval('public.role_id_seq'::regclass);
+
+
+--
+-- Name: user id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."user" ALTER COLUMN id SET DEFAULT nextval('public.user_id_seq'::regclass);
+
+
+--
+-- Data for Name: hinh_thuc; Type: TABLE DATA; Schema: public; Owner: -
+--
+
+COPY public.hinh_thuc (id, ten_loai) FROM stdin;
+1	Phim bộ
+2	Phim lẻ
+\.
+
+
+--
+-- Data for Name: phim; Type: TABLE DATA; Schema: public; Owner: -
+--
+
+COPY public.phim (id, seo, ten_phim_tiengviet, ten_phim_tienganh, diem_imdb, dao_dien, quoc_gia, nam, thoi_luong, so_tap, chat_luong, the_loai, noi_dung_phim, congty_sx, trailer, hinhthuc_id, imdb, luot_xem, status) FROM stdin;
+8	alita-battle-angel-1623301197478	ALITA: THIÊN THẦN CHIẾN BINH	Alita: Battle Angel	7.3	Robert Rodriguez	Mỹ	2019	122 phút	1 tập	Full HD	Phim hành động, Phim viễn tưởng, Phim phiêu lưu, Phim tình cảm - lãng mạn	Điệp viên Ethan Hunt bị vướng vào rắc rối thêm một lần nữa “và giờ thế giới đang lâm nguy”. Câu chuyện giật gân được hé lộ phần nào qua những pha hành động kịch tính, nghẹt thở, từ cuộc chạy đua “marathon” của anh chàng Ethan Hunt, chạm trán trên không, đến việc tẩu thoát ngoạn mục khỏi đội ngũ cảnh sát hùng hậu, rồi màn đối đầu giữa những người chiến hữu ngang tài sức...	Twentieth Century Fox, Lightstorm Entertainment, Troublemaker Studios	https://www.youtube.com/embed/w7pYhpJaJW8	2	\N	20	t
+3	avengers-4-endgame-2019-1623296617198	BIỆT ĐỘI SIÊU ANH HÙNG 4: HỒI KẾT	Avengers 4: Endgame (2019)	8.7	Anthony Russo, Joe Russo	Mỹ	2019	181 phút	1 tập	Full HD	Phim hành động, Phim viễn tưởng, Phim phiêu lưu	Biệt Đội Siêu Anh Hùng 4: Tàn Cuộc (Avengers 4: Endgame) ra mắt vào tháng 4/2019 sẽ giải quyết triệt để những khúc mắc đã vạch ra suốt 22 bộ phim trước đó của Vụ trụ điện ảnh Marvel (MCU). Hai tháng sau đó, Người Nhện 2 là khởi đầu hoàn toàn mới dành cho MCU.<br><br>Sau sự kiện Thanos làm cho một nửa vũ trụ tan biến và khiến cho biệt đội Avengers thảm bại, những siêu anh hùng sống sót phải tham gia trận chiến cuối cùng trong Avengers: Endgame.	Brazil Production Services, Double Negative (DNEG), Marvel Studios	https://www.youtube.com/embed/TcMBFSGVi1c	2	\N	1	t
+5	resident-evil-vendetta-2017-1623297541457	VÙNG ĐẤT QUỶ DỮ: NỢ MÁU	Resident Evil: Vendetta (2017)	6.7	Takanori Tsujimoto	Nhật Bản	2017	97 phút	1 tập	Full HD	Phim hành động, Phim phiêu lưu, Phim hoạt hình	Từ thuở xa xưa, tinh hoa đất trời hội tụ thành một viên ngọc chứa đựng năng lượng khổng lồ. Nguyên Thủy Thiên Tôn đã phân tách viên ngọc này thành 1 viên Linh Châu và 1 viên Ma Hoàn. Viên Linh Châu sẽ đầu thai thành một anh hùng cứu thế, phò trợ nhà Chu. Trong khi đó, Ma Hoàn sẽ tạo ra một Ma Vương tàn sát thiên hạ. Để ngăn chặn thảm họa, Nguyên Thủy Thiên Tôn đã hạ chú để sau 3 năm Ma Vương sẽ bị Thiên kiếp tiêu diệt. Liệu Na Tra có đủ sức để thay đổi Thiên mệnh?	Capcom Company, Marza Animation Planet	https://www.youtube.com/embed/qCh5VMUZh7k	2	\N	1	t
+6	captain-america-2-the-winter-soldier-2014-1623297952679	CAPTAIN AMERICA 2: CHIẾN BINH MÙA ĐÔNG	Captain America 2: The Winter Soldier (2014)	8.6	Joe Russo, Anthony Russo	Mỹ	2014	136 phút	1 tập	Full HD	Phim hành động, Phim viễn tưởng, Phim phiêu lưu	Từ thuở xa xưa, tinh hoa đất trời hội tụ thành một viên ngọc chứa đựng năng lượng khổng lồ. Nguyên Thủy Thiên Tôn đã phân tách viên ngọc này thành 1 viên Linh Châu và 1 viên Ma Hoàn. Viên Linh Châu sẽ đầu thai thành một anh hùng cứu thế, phò trợ nhà Chu. Trong khi đó, Ma Hoàn sẽ tạo ra một Ma Vương tàn sát thiên hạ. Để ngăn chặn thảm họa, Nguyên Thủy Thiên Tôn đã hạ chú để sau 3 năm Ma Vương sẽ bị Thiên kiếp tiêu diệt. Liệu Na Tra có đủ sức để thay đổi Thiên mệnh?	Marvel Entertainment	https://www.youtube.com/embed/7SlILk2WMTI	2	\N	3	t
+9	kingdom-season-2-1623301804370	VƯƠNG TRIỀU XÁC SỐNG (PHẦN 2)	Kingdom (Season 2)	8.4	Kim Sung Hoon, Park In Je  	Hàn Quốc	2019	50 phút	6 tập	Full HD	Phim hành động, Phim cổ trang, Phim kinh dị	Một loài cây quý hiếm đã bí mật được dùng để hồi sinh hoàng đế đã băng hà. Nhưng không còn là con người nữa, hoàng đế đã biến thành con quái vật thèm khát máu và thịt người. Căn bệnh chưa từng thấy này đã lây lan nhanh chóng, trở thành một đại họa không thể lường trước. Thế tử Lee Chang và các cận vệ của mình tiếp tục bảo vệ vương triều khi những xác sống ngày càng trở nên đông hơn, trong khi đó nữ y sĩ Seo Bi đã tìm ra cách ngăn chặn bệnh dịch. Còn ở trong cung, Vương hậu đang có một âm mưu man rợ để chiếm đoạt ngai vàng.	AStory	https://www.youtube.com/embed/7ecrESKwh_Y	1	\N	10	t
+4	the-legend-of-nezha-2019-1623297157586	NA TRA: MA ĐỒNG GIÁNG THẾ	The Legend of Nezha (2019)	7.8	Yu Yang	Trung Quốc	2019	110 phút	1 tập	Full HD	Phim viễn tưởng, Phim hồi hộp - gay cấn, Phim hoạt hình	Từ thuở xa xưa, tinh hoa đất trời hội tụ thành một viên ngọc chứa đựng năng lượng khổng lồ. Nguyên Thủy Thiên Tôn đã phân tách viên ngọc này thành 1 viên Linh Châu và 1 viên Ma Hoàn. Viên Linh Châu sẽ đầu thai thành một anh hùng cứu thế, phò trợ nhà Chu. Trong khi đó, Ma Hoàn sẽ tạo ra một Ma Vương tàn sát thiên hạ. Để ngăn chặn thảm họa, Nguyên Thủy Thiên Tôn đã hạ chú để sau 3 năm Ma Vương sẽ bị Thiên kiếp tiêu diệt. Liệu Na Tra có đủ sức để thay đổi Thiên mệnh?	Coco Cartoon, Horgos Coloroom Pictures, October Media	https://www.youtube.com/embed/oJEwLXhPY7Y	2	\N	1	t
+7	mission-impossible-fallout-1623300850979	NHIỆM VỤ BẤT KHẢ THI: SỤP ĐỔ	Mission: Impossible – Fallout	7.7	Christopher Mcquarrie	Mỹ	2018	147 phút	1 tập	Full HD	Phim hành động, Phim viễn tưởng, Phim phiêu lưu	Điệp viên Ethan Hunt bị vướng vào rắc rối thêm một lần nữa “và giờ thế giới đang lâm nguy”. Câu chuyện giật gân được hé lộ phần nào qua những pha hành động kịch tính, nghẹt thở, từ cuộc chạy đua “marathon” của anh chàng Ethan Hunt, chạm trán trên không, đến việc tẩu thoát ngoạn mục khỏi đội ngũ cảnh sát hùng hậu, rồi màn đối đầu giữa những người chiến hữu ngang tài sức...	Paramount Pictures, Skydance Media, TC Productions	https://www.youtube.com/embed/wb49-oV0F78	2	\N	1	t
+2	fast-furious-presents-hobbs-shaw-2019-1623136871043	QUÁ NHANH QUÁ NGUY HIỂM: HOBBS VÀ SHAW	 Fast & Furious Presents: Hobbs & Shaw (2019)	6.6	David Leitch	Mỹ	2019	137 phút	1 tập	Full HD	Phim hành động, Phim phiêu lưu	Sau 8 phim với phần doanh thu chạm mức 5 tỉ đô la Mỹ toàn cầu, giờ đây\r\n                         thương\r\n                         hiệu Fast &amp;\r\n                         Furious sẽ trở lại với một phần ngoại truyện hoàn toàn độc lập với sự tham gia của Dwayne\r\n                         Johnson trong vai Luke Hobbs và Jason Statham trong vai Deckard Shaw trong Hobbs &amp;\r\n                         Shaw.<br><br>Câu chuyện giữa hai người tưởng như không đội trời chung là Đặc vụ An ninh\r\n                         Ngoại giao Mỹ Luke Hobbs và tên tội phạm đánh thuê khét tiếng Deckard Shaw khi họ bất đắc dĩ\r\n                         phải bắt tay hợp tác nhằm ngăn chặn âm mưu của trùm phản diện cực nguy hiểm trong diện bí ẩn\r\n                         Brixton.	Chris Morgan Productions, Seven Bucks Productions, Universal Pictures	https://www.youtube.com/embed/9SA7FaKxZVI	2	t	115	t
+\.
+
+
+--
+-- Data for Name: poster_video_phim; Type: TABLE DATA; Schema: public; Owner: -
+--
+
+COPY public.poster_video_phim (id, id_google_drive, status, phim_id) FROM stdin;
+1	1G-r9mJMUKNZkaldITiis8tU18NK7Va3_	t	2
+2	1n6DW4rweW1xVj6ze1NVNpwIzu2l9DSji	t	2
+3	1b9v_SmXoZIClwqJbepX-OZeKHxc7xbMZ	t	3
+4	126v6p2wy-E6MYczDfkMf_GpQOtwNvDDv	t	3
+5	1-fG-hR1tiPDPsVZeBa7ELn_VfuAptI7-	t	4
+6	1ki88E4VlEzG5OenpXuhKVM8RK9MxEbOW	t	4
+7	1Apt2KNKXvSa02IOIRvrXC7fMXStPqJHs	t	5
+8	1zndZCU2S6olJW_tURKPe6PP2FPI2gls4	t	5
+9	1wNt-AmBUOPlN0hkAn7wiN_nSZMniRNdK	t	6
+10	1bayUbDP2QLjRD3XpvgMEY8awG1SoegqN	t	6
+11	1K3OpdaaKVWCTCvLDq9dhT-T5WF1ORP3g	t	7
+12	1iCuOcznNuqFAwgW_6uoYpa6ohUS26NAn	t	7
+13	1365FddqwV_qly12vt6Y22F-OcKKky30P	t	8
+14	1g8kQt9e8EWyrhUr9lDQrfYOqRB-8ft-A	t	8
+15	1wraLkVJVA-ZOJxSP0kjLNSo1g3pl5UVI	t	9
+16	1aNkFCgJP4kn1wZWf1y4VNSQ1ibrTrDEH	t	9
+17	19dOymtbsjlKanMCjauhzOr18-ElhzBPx	t	9
+18	1NrMhQPGOVJyuBKT5a6hGUYzVFt3GVazR	t	9
+19	15Lvh5SWG6yh2SWFLkYyDdCH8l7uGetk_	t	9
+20	1xLUyY7tgmhPr53maEd7jbuJl8Nps30fC	t	9
+21	18n795DkoYiQcwBK3oK9bvY4Y_fcct9OO	t	9
+\.
+
+
+--
+-- Data for Name: role; Type: TABLE DATA; Schema: public; Owner: -
+--
+
+COPY public.role (id, name, description, status) FROM stdin;
+1	ROLE_ADMIN	ADMIN	t
+2	ROLE_USER	USER	t
+\.
+
+
+--
+-- Data for Name: user; Type: TABLE DATA; Schema: public; Owner: -
+--
+
+COPY public."user" (id, username, password, fullname, mobile, email, status) FROM stdin;
+1	admin	$2a$10$2yiae9.Vt.69/1Vp73SwGuH81B/XbzVq1LmevpOD6CmqhnPwawu1W	Cường Phạm	0961656067	phamcuongth2000@gmail.com	t
+2	user1	$2a$10$YVCXAOuEEdjVVZsU5.ZMsey3LwY2ep0SkCEWQjbGyYPRWOEUDcjO.	Hoa Hà	0123456789	hoaha@gmail.com	t
+5	user2	$2a$10$PwTysqx.gjSD9zru6z7UZeXfyYig4KvLqgoYHTAUVKiNjzW6C4.Su	Lê Nam	0123456789	lehung@gmail.com	t
+\.
+
+
+--
+-- Data for Name: user_role; Type: TABLE DATA; Schema: public; Owner: -
+--
+
+COPY public.user_role (user_id, role_id) FROM stdin;
+1	1
+2	2
+5	2
+\.
+
+
+--
+-- Name: hinh_thuc_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
+--
+
+SELECT pg_catalog.setval('public.hinh_thuc_id_seq', 2, true);
+
+
+--
+-- Name: phim_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
+--
+
+SELECT pg_catalog.setval('public.phim_id_seq', 11, true);
+
+
+--
+-- Name: poster_video_phim_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
+--
+
+SELECT pg_catalog.setval('public.poster_video_phim_id_seq', 24, true);
+
+
+--
+-- Name: role_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
+--
+
+SELECT pg_catalog.setval('public.role_id_seq', 2, true);
+
+
+--
+-- Name: user_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
+--
+
+SELECT pg_catalog.setval('public.user_id_seq', 5, true);
+
+
+--
+-- Name: hinh_thuc hinh_thuc_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.hinh_thuc
+    ADD CONSTRAINT hinh_thuc_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: phim phim_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.phim
+    ADD CONSTRAINT phim_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: poster_video_phim poster_video_phim_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.poster_video_phim
+    ADD CONSTRAINT poster_video_phim_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: role role_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.role
+    ADD CONSTRAINT role_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: user user_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."user"
+    ADD CONSTRAINT user_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: user_role user_role_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.user_role
+    ADD CONSTRAINT user_role_pkey PRIMARY KEY (user_id, role_id);
+
+
+--
+-- Name: user_role fk_role; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.user_role
+    ADD CONSTRAINT fk_role FOREIGN KEY (role_id) REFERENCES public.role(id);
+
+
+--
+-- Name: user_role fk_user; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.user_role
+    ADD CONSTRAINT fk_user FOREIGN KEY (user_id) REFERENCES public."user"(id);
+
+
+--
+-- Name: phim hinh_thuc_fk; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.phim
+    ADD CONSTRAINT hinh_thuc_fk FOREIGN KEY (hinhthuc_id) REFERENCES public.hinh_thuc(id);
+
+
+--
+-- Name: poster_video_phim phim_fk; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.poster_video_phim
+    ADD CONSTRAINT phim_fk FOREIGN KEY (phim_id) REFERENCES public.phim(id);
+
+
+--
+-- PostgreSQL database dump complete
+--
+
