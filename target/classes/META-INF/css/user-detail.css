@@ -1,0 +1,38 @@
+.page-container .main-content .form-add {
+    height: 560px;
+}
+
+.show-info {
+	background: white;
+	margin-top: 40px;
+	padding: 10px;
+	border-radius: 3px;
+}
+
+.show-info h2{
+	margin-top: 53px;
+}
+
+.show-info img {
+	width: 354px;
+	height: 354px;
+}
+
+.show-info table .noidung {
+	font-size: 20px;
+	font-weight: 600;
+	width: 180px;
+}
+
+.show-info table tr {
+	height: 40px;
+}
+
+.show-info table {
+	margin-top: 20px;
+}
+
+.show-info a.btn-primary{
+	margin-top: 20px;
+}
+

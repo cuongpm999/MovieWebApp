@@ -1,0 +1,50 @@
+.chi-tiet {
+	padding-bottom: 1px;
+}
+
+table {
+	color: white;
+	font-size: 16px;
+	text-align: center;
+}
+
+#download-link-list {
+	padding-top: 20px;
+	padding-right: 20px;
+	padding-left: 20px;
+	padding-bottom: 5px;
+	margin: 12px;
+	background-color: rgba(65, 63, 63, 0.678);
+}
+
+h4.down {
+	color: #dacb46;
+	font-size: 16px;
+	font-weight: 620;
+	margin-left: 13px;
+	margin-top: 15px;
+}
+
+table a {
+	color: aqua;
+	text-decoration: none;
+}
+
+table a:hover {
+	color: #dacb46;
+	text-decoration: none;
+}
+
+@media only screen and (max-width:992px) {
+	table {
+		color: white;
+		font-size: 11px;
+		text-align: center;
+	}
+}
+
+@media only screen and (max-width:321px) {
+	table {
+		font-size: 9px;
+	}
+}

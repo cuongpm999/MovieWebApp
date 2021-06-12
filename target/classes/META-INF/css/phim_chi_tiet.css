@@ -1,0 +1,296 @@
+.chi-tiet {
+	background-color: #202020;
+	padding: 10px;
+	font-family: monospace;
+}
+
+.poster img {
+	width: 344px;
+	height: 546px;
+}
+
+.infor-movie {
+	font-family: monospace;
+}
+
+.infor-movie h2 {
+	color: #dacb46;
+	font-size: 25px;
+	font-weight: 600;
+}
+
+.infor-movie .en {
+	color: #999;
+	font-size: 14px;
+}
+
+.movie-dl {
+	color: #bbb;
+	background-color: rgba(65, 63, 63, 0.678);
+	padding: 10px;
+	font-size: 14px;
+	height: 340px;
+}
+
+.movie-dt, .movie-dd {
+	display: inline;
+}
+
+.infor-movie a {
+	text-decoration: none;
+	color: aqua;
+}
+
+.infor-movie a:hover {
+	color: #dacb46;
+}
+
+.noidung {
+	font-family: monospace;
+	background-color: rgba(65, 63, 63, 0.678);
+	padding: 10px;
+	margin-bottom: 20px;
+	margin-top: 20px;
+}
+
+.noidung .detail-movie {
+	color: #dacb46;
+	font-size: 16px;
+	font-weight: 600;
+}
+
+.noidung .content-movie {
+	color: #bbb;
+	font-size: 14px;
+}
+
+h4.trailer {
+	color: #dacb46;
+	font-size: 16px;
+	font-weight: 620;
+}
+
+.binhluan {
+	background-color: #202020;
+	padding: 10px;
+	margin-top: 15px;
+}
+
+.binhluan h4 {
+	color: #dacb46;
+	font-size: 16px;
+	font-weight: 620;
+}
+
+.poster .btn-block {
+	position: absolute;
+	background: rgba(0, 0, 0, 0.8);
+	width: 345px;
+	bottom: -16px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	padding-left: 25px;
+}
+
+.poster .btn-block .item {
+	display: inline-block;
+}
+
+.imdb {
+	color: #000;
+	padding: 3px;
+	font-size: 12px;
+	font-weight: bold;
+	background: #E3B71E;
+	border-radius: 3px;
+}
+
+.col-md-3.danhmuc {
+	margin-top: -13px;
+}
+
+@media only screen and (max-width:1200px) {
+	.poster img {
+		width: 264px;
+		height: 418px;
+	}
+	.poster .btn-block {
+		width: 264px;
+		bottom: -17px;
+		padding-left: 8px;
+	}
+	.btn {
+		margin-top: 0px;
+		font-size: 12px;
+	}
+	.infor-movie h2 {
+		font-size: 20px;
+	}
+	.movie-dl {
+		height: 281px;
+	}
+	iframe{
+		height: 340px;
+	}
+}
+
+@media only screen and (max-width:992px) {
+	.col-md-6.infor-movie {
+		max-width: 37%;
+		margin-left: 53px;
+	}
+	.infor-movie h2 {
+		font-size: 20px;
+	}
+	.movie-dl {
+		font-size: 13px;
+		height: 257px;
+	}
+	.phim .row {
+		flex-direction: column;
+	}
+	.poster img {
+		width: 382px;
+		height: 605px;
+	}
+	.poster .btn-block {
+		width: 382px;
+		bottom: -16px;
+		padding-left: 41px;
+	}
+	.btn {
+		font-size: 16px;
+	}
+	.col-md-6.infor-movie {
+		max-width: 100%;
+		margin-left: 0;
+	}
+	.infor-movie h2 {
+		font-size: 25px;
+	}
+	iframe{
+		height: 280px;
+	}
+}
+
+@media only screen and (max-width:800px) {
+	.poster img {
+		width: 241px;
+		height: 381px;
+	}
+	.poster .btn-block {
+		width: 241px;
+		padding-left: 9px;
+	}
+	.btn {
+		font-size: 10px;
+	}
+	.infor-movie h2 {
+		font-size: 20px;
+	}
+}
+
+@media only screen and (max-width:767px) {
+	.phim .row {
+		flex-direction: row;
+	}
+	.poster img {
+		width: 272px;
+		height: 431px;
+	}
+	.col-md-6.poster {
+		width: 60%;
+	}
+	.col-md-6.infor-movie {
+		max-width: 45%;
+		margin-left: -26px;
+	}
+	.poster .btn-block {
+		width: 273px;
+		bottom: -16px;
+		padding-left: 12px;
+	}
+	.btn {
+		font-size: 12px;
+	}
+	.col-md-3.danhmuc {
+		margin-top: 33px;
+		margin-left: -5px;
+	}
+	iframe{
+		height: 320px;
+	}
+}
+
+@media only screen and (max-width:650px) {
+	.phim .row {
+		flex-direction: column;
+	}
+	.poster img {
+		width: 385px;
+		height: 610px;
+	}
+	.poster .btn-block {
+		width: 385px;
+		bottom: -16px;
+		padding-left: 43px;
+	}
+	.btn {
+		font-size: 16px;
+	}
+	.col-md-6.infor-movie {
+		max-width: 100%;
+		margin-left: 0px;
+	}
+	.infor-movie h2 {
+		font-size: 25px;
+	}
+	iframe{
+		height: 280px;
+	}
+}
+
+@media only screen and (max-width:520px) {
+	.poster img {
+		width: 324px;
+		height: 513px;
+	}
+	.poster .btn-block {
+		width: 324px;
+		bottom: -16px;
+		padding-left: 25px;
+	}
+	.btn {
+		font-size: 14px;
+	}
+	.infor-movie h2 {
+		font-size: 23px;
+	}
+}
+
+@media only screen and (max-width:426px) {
+	.poster .btn-block {
+		position: static;
+		width: inherit;
+		padding-left: 20px;
+		text-align: center;
+	}
+	.poster img {
+		width: inherit;
+		height: auto;
+	}
+	.btn {
+		margin-left: -12px;
+		margin-right: 12px;
+		margin-top: 5px;
+	}
+	.col-md-6.poster {
+		width: 100%;
+	}
+	.infor-movie h2 {
+		font-size: 20px;
+	}
+	iframe{
+		height: 220px;
+	}
+}

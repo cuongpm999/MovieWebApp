@@ -1,0 +1,49 @@
+.card {
+	background-color: rgba(65, 63, 63, 0.678);
+	padding: 15px;
+}
+
+.form-control {
+	background-color: rgba(65, 63, 63, 0.678);
+	color: #dacb46;
+}
+
+label {
+	color: aqua;
+	font-size: 20px;
+	font-weight: 600;
+}
+
+.nav-tabs .nav-link {
+	border: 1px solid transparent;
+	border-radius: 0.25rem;
+}
+.nav-tabs .nav-item {
+    margin-left: 12px;
+}
+.nav-tabs .nav-link:hover {
+	border: 1px solid #42494f;
+}
+.nav a{
+	color: white;
+}
+table {
+	color: white;
+	margin-top: 20px;
+}
+.nav-tabs a:hover{
+	color: #dacb46;
+}
+.dropdown-item:hover{
+	background-color: #323031;
+}
+.note-editor.card{
+	padding: 0;
+}
+a:not([href]):not([tabindex]) {
+    color: white;
+    text-decoration: none;
+}
+a:not([href]):not([tabindex]):hover {
+	color: #dacb46;
+}
