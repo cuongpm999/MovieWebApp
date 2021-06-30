@@ -24,9 +24,9 @@
 			<div class="col-md-2">
 				<h3 class="font-weight-bold" style="color: aqua">PHIM MỚI</h3>
 				<ul class="list-unstyled thongtin">
-					<li><a href="http://localhost:6969/phim_le/?page=1">Phim
+					<li><a href="/phim_le/?page=1">Phim
 							lẻ mới</a></li>
-					<li><a href="http://localhost:6969/phim_bo/?page=1">Phim
+					<li><a href="/phim_bo/?page=1">Phim
 							bộ mới</a></li>
 				</ul>
 			</div>
