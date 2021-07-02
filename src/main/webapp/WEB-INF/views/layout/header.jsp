@@ -107,9 +107,9 @@
 								</div>
 							</div>
 						</div></li>
-					<li class="nav-item"><a class="nav-link" href="http://localhost:6969/phim_le/?page=1">
+					<li class="nav-item"><a class="nav-link" href="/phim_le/?page=1">
 							PHIM LẺ </a></li>
-					<li class="nav-item"><a class="nav-link" href="http://localhost:6969/phim_bo/?page=1">
+					<li class="nav-item"><a class="nav-link" href="/phim_bo/?page=1">
 							PHIM BỘ </a></li>
 					<li class="nav-item"><a class="nav-link" href="/imdb">TOP
 							IMDB ${imdb}</a></li>
