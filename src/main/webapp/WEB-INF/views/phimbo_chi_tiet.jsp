@@ -120,7 +120,7 @@
 				<h4>BÌNH LUẬN</h4>
 				<div style="background-color: rgba(65, 63, 63, 0.678);">
 					<div class="fb-comments"
-						data-href="https://developers.facebook.com/docs/plugins/comments#configurator/${movie.seo }"
+						data-href="http://128.0.0.1:${movie.seo }"
 						data-width="100%" data-numposts="5"></div>
 				</div>
 			</div>
