@@ -72,7 +72,7 @@
 				<h4 id="waypoint_here">BÌNH LUẬN</h4>
 				<div style="background-color: rgba(65, 63, 63, 0.678);">
 					<div class="fb-comments"
-						data-href="http://128.0.0.1:${see_trailer.seo }"
+						data-href="http://128.0.0.1:${see_trailer.id }"
 						data-width="100%" data-numposts="5"></div>
 				</div>
 			</div>
