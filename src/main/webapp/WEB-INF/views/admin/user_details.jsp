@@ -30,7 +30,7 @@
 	href="${pageContext.request.contextPath}/css/user-detail.css">
 <!-- ----------------- -->
 
-<title>Laptop Project</title>
+<title>Movie Project</title>
 </head>
 
 <body>
