@@ -24,11 +24,9 @@
 
 <!-- CSS & JAVA_SCRIPT -->
 <%@ include file="/WEB-INF/views/layout/includer.jsp"%>
-<link rel="stylesheet" type="text/css"
-	href="${pageContext.request.contextPath}/css/giohang.css">
 <!-- ----------------- -->
 
-<title>Laptop Project</title>
+<title>Movie Project</title>
 </head>
 
 <body>
