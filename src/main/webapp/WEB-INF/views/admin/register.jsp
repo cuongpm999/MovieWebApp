@@ -28,7 +28,7 @@
 	href="${pageContext.request.contextPath}/css/manage.css">
 <!-- ----------------- -->
 
-<title>Laptop Project</title>
+<title>Movie Project</title>
 </head>
 
 <body>
